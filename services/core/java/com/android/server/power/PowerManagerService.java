@@ -76,6 +76,8 @@ import java.util.Arrays;
 
 import libcore.util.Objects;
 
+import org.slim.provider.SlimSettings;
+
 import static android.os.PowerManagerInternal.POWER_HINT_INTERACTION;
 import static android.os.PowerManagerInternal.WAKEFULNESS_ASLEEP;
 import static android.os.PowerManagerInternal.WAKEFULNESS_AWAKE;
@@ -1517,6 +1519,12 @@ public final class PowerManagerService extends SystemService
 
         // Don't wake while theater mode is enabled.
         if (mTheaterModeEnabled && !mWakeUpWhenPluggedOrUnpluggedInTheaterModeConfig) {
+            return false;
+        }
+
+        if (SlimSettings.System.getIntForUser(mContext.getContentResolver(),
+                SlimSettings.System.WAKEUP_WHEN_PLUGGED_UNPLUGGED, 1,
+                UserHandle.USER_CURRENT) == 0) {
             return false;
         }
 
