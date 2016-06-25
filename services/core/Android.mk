@@ -12,4 +12,7 @@ LOCAL_SRC_FILES += \
 LOCAL_JAVA_LIBRARIES := services.net telephony-common
 LOCAL_STATIC_JAVA_LIBRARIES := tzdata_update
 
+## Slim Framework
+LOCAL_JAVA_LIBRARIES += org.slim.framework
+
 include $(BUILD_STATIC_JAVA_LIBRARY)

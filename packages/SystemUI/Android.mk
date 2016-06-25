@@ -10,7 +10,8 @@ LOCAL_STATIC_JAVA_LIBRARIES := \
             Keyguard \
             guava
 
-LOCAL_JAVA_LIBRARIES := telephony-common
+LOCAL_JAVA_LIBRARIES := telephony-common \
+    org.slim.framework
 
 LOCAL_PACKAGE_NAME := SystemUI
 LOCAL_CERTIFICATE := platform
